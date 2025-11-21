@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Arabic Love Poetry Design System - Romantic Theme with Arabic Typography 
+All colors are HSL for perfect theming support
+*/
+
+@layer base {
+  :root {
+    /* Base colors - Romantic rose and cream palette */
+    --background: 20 30% 97%;
+    --foreground: 345 25% 15%;
+
+    /* Card styling for poem displays */
+    --card: 20 40% 98%;
+    --card-foreground: 345 30% 20%;
+
+    /* Popover components */
+    --popover: 20 35% 98%;
+    --popover-foreground: 345 25% 15%;
+
+    /* Primary - Deep romantic rose */
+    --primary: 359 59% 26%;
+    --primary-foreground: 20 30% 98%;
+    --primary-glow: 358 61% 35%;
+
+    /* Secondary - Warm gold accent */
+    --secondary: 35 85% 85%;
+    --secondary-foreground: 345 40% 30%;
+
+    /* Muted tones for subtle elements */
+    --muted: 20 25% 90%;
+    --muted-foreground: 0 34% 27%;
+
+    /* Accent - Rich burgundy */
+    --accent: 345 45% 35%;
+    --accent-foreground: 20 30% 98%;
+
+    /* Status colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders and inputs */
+    --border: 20 20% 88%;
+    --input: 20 15% 92%;
+    --ring: 359 59% 26%;
+
+    /* Enhanced radius for romantic curves */
+    --radius: 0.75rem;
+
+    /* Gradients for romantic effects */
+    --gradient-romantic: linear-gradient(135deg, hsl(345, 65%, 45%), hsl(345, 75%, 65%));
+    --gradient-sunset: linear-gradient(180deg, hsl(20, 30%, 97%), hsl(345, 15%, 92%));
+    --gradient-gold: linear-gradient(45deg, hsl(35, 85%, 75%), hsl(35, 90%, 85%));
+
+    /* Shadows with romantic glow */
+    --shadow-romantic: 0 10px 30px -10px hsl(345 65% 45% / 0.3);
+    --shadow-poem: 0 4px 20px -5px hsl(345 25% 15% / 0.1);
+
+    /* Typography scale */
+    --font-arabic: 'Amiri', serif;
+    --font-decorative: 'Aref Ruqaa', cursive;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - Deep romantic night theme */
+    --background: 345 20% 8%;
+    --foreground: 20 25% 92%;
+
+    --card: 345 15% 12%;
+    --card-foreground: 20 20% 88%;
+
+    --popover: 345 20% 10%;
+    --popover-foreground: 20 25% 92%;
+
+    --primary: 345 75% 65%;
+    --primary-foreground: 345 20% 8%;
+    --primary-glow: 345 85% 75%;
+
+    --secondary: 345 10% 20%;
+    --secondary-foreground: 20 20% 88%;
+
+    --muted: 345 8% 18%;
+    --muted-foreground: 20 10% 65%;
+
+    --accent: 345 60% 55%;
+    --accent-foreground: 345 20% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 345 10% 25%;
+    --input: 345 8% 18%;
+    --ring: 345 75% 65%;
+
+    /* Dark mode gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(345, 75%, 65%), hsl(345, 60%, 55%));
+    --gradient-sunset: linear-gradient(180deg, hsl(345, 20%, 8%), hsl(345, 15%, 12%));
+    --gradient-gold: linear-gradient(45deg, hsl(35, 60%, 45%), hsl(35, 70%, 65%));
+
+    --shadow-romantic: 0 10px 30px -10px hsl(345 75% 65% / 0.4);
+    --shadow-poem: 0 4px 20px -5px hsl(0 0% 0% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-arabic;
+    direction: rtl; /* Right-to-left for Arabic text */
+  }
+
+  html {
+    direction: rtl;
+  }
+
+  /* Arabic typography classes */
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+
+  .font-decorative {
+    font-family: var(--font-decorative);
+  }
+
+  /* Poem styling utilities */
+  .poem-container {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-xl p-8 shadow-lg;
+    box-shadow: var(--shadow-poem);
+  }
+
+  .poem-title {
+    @apply font-decorative text-2xl md:text-3xl text-accent font-bold mb-6 text-center;
+  }
+
+  .poem-verse {
+    @apply font-arabic text-lg md:text-xl leading-relaxed text-foreground/90 mb-4 text-center;
+    line-height: 2;
+  }
+
+  .romantic-gradient {
+    background: var(--gradient-romantic);
+  }
+
+  .sunset-gradient {
+    background: var(--gradient-sunset);
+  }
+
+  .gold-gradient {
+    background: var(--gradient-gold);
+  }
+
+  /* Animation utilities */
+  .fade-in-up {
+    @apply animate-[fadeInUp_0.6s_ease-out];
+  }
+
+  .text-primary-hover {
+    color: #B11F24;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Romantic decorative elements */
+  .heart-decoration::before {
+    content: "♥";
+    @apply text-primary/30 text-sm mr-2;
+  }
+
+  .ornament-divider {
+    @apply text-primary/40 text-center text-2xl my-8;
+  }
+}
